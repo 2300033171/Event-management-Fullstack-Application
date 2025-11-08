@@ -1,0 +1,2 @@
+# Minimal overlay - apply after base
+# Contains same manifests as base but with image set to local testing images

@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: event-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    # Example cert-manager annotation:
+    # cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  rules:
+  - host: event.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: event-frontend
+            port:
+              number: 80
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: event-backend
+            port:
+              number: 8080
+  tls:
+  - hosts:
+    - event.example.com
+    secretName: event-tls-secret

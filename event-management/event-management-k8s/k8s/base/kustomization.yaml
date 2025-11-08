@@ -1,0 +1,8 @@
+resources:
+- namespace.yaml
+- mysql-secret.yaml
+- mysql-statefulset.yaml
+- backend-deployment.yaml
+- frontend-deployment.yaml
+- configmap.yaml
+- ingress.yaml
